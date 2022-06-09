@@ -1,0 +1,88 @@
+<div class="p-card-subheader px-4">
+    <span class="text-bluegray-800">Registrarse para más funcionalidades 🚀</span>
+</div>
+<form class="grid p-card-content px-4 py-4" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="createUser()">
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa fa-user"></i>
+            <input formControlName="username" type="text" class="w-12 ng-invalid ng-dirty" pInputText
+            [ngClass]="{'ng-invalid ng-dirty':inputInvalid('username')}"
+            pInputText>
+            <label for="float-input">Usuario</label>
+        </span>
+        <small class="p-error block mt-2" *ngIf="inputInvalid('username')">{{usernameErrorMsg}}</small>
+
+    </div>
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa-solid fa-signature"></i>
+            <input formControlName="name" type="text" class="w-12 ng-invalid ng-dirty" pInputText
+            [ngClass]="{'ng-invalid ng-dirty':inputInvalid('name')}"
+            >
+            <label for="float-input">Nombre</label>
+        </span>
+        <small class="p-error block mt-2" *ngIf="inputInvalid('name')">{{nameErrorMsg}}</small>
+    </div>
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa-solid fa-at"></i>
+            <input formControlName="email" type="email" class="w-12 ng-invalid ng-dirty" pInputText
+            [ngClass]="{'ng-invalid ng-dirty':inputInvalid('email')}"
+            >
+            <label for="float-input">Email</label>
+        </span>
+        <small class="p-error block mt-2" *ngIf="inputInvalid('email')">{{emailErrorMsg}}</small>
+    </div>
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa-solid fa-key"></i>
+            <input formControlName="password" type="password" pInputText class="w-12 ng-invalid ng-dirty"
+            [ngClass]="{'ng-invalid ng-dirty':inputInvalid('password')}"
+            >
+            <label for="float-input">Contraseña</label>
+        </span>    
+        <small  class="p-error block mt-2" *ngIf="inputInvalid('password')">{{passwordErrorMsg}}</small>
+    </div>
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa-solid fa-key"></i>
+            <input formControlName="repeatPass" type="password" class="w-12 ng-invalid ng-dirty"
+            [ngClass]="{'ng-invalid ng-dirty':inputInvalid('repeatPass')}"
+            pInputText>
+            <label for="float-input">Repetir contraseña</label>
+        </span>
+        <small class="p-error block mt-2" *ngIf="inputInvalid('repeatPass')">Las contraseñas deben ser iguales.</small>
+    </div>
+    <div class="col-12 flex justify-content-end">
+        <div class="field-checkbox">
+            <p-checkbox [binary]="true" inputId="binary" formControlName="conditions"></p-checkbox>
+            <label for="binary" class="text-bluegray-800">
+                Términos y condiciones
+            </label>
+            <button pButton pRipple class="p-button-info p-button-text ml-2" (click)="showModalDialog()" icon="pi pi-external-link">
+            </button>
+        </div>
+    </div>
+    <div class="col-12">
+        <span class="text-bluegray-800">¿Ya tienes una cuenta?</span>
+        <a [routerLink]="['/auth/login']" class="text-orange-500">
+            <span> Iniciar sesión</span>
+        </a>
+    </div>
+    <div class="col-12 flex justify-content-end">
+        <button pButton pRipple class="bg-orange-500" [disabled]="miFormulario.invalid" icon="fa-solid fa-arrow-right-to-bracket" type="submit" label="Registrarse">
+        </button>
+    </div>
+</form>
+
+<!-- <pre>Form Valid: {{miFormulario.valid}}</pre> -->
+<p-dialog header="Condiciones" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+    <p class="m-0">No hay no existen, solo gozalo!!</p>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
+
+
+

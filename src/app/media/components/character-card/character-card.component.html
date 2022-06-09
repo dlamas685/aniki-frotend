@@ -1,0 +1,28 @@
+<div class="col-6 sm:col-6 md:col-5 lg:col-5 xl:col-5 flex justify-content-start px-0 py-0" >
+    <img *ngIf="character.node.image.large ; else cardCharacter" [src]="character.node.image.large" class="border-round-left" width="80" alt="">
+    <ng-template #cardCharacter>
+        <img *ngIf="character.node.image.large ; else cardCharacter" src="../../../../assets/img/default.jpg" class="border-round-left" width="80" alt="">
+    </ng-template>
+    <div class="flex flex-column justify-content-between px-2 py-2 overflow-hidden" style="word-wrap: break-word;">
+        <span class="text-bluegray-800 font-medium text-left text-sm sm:text-sm md:text-base lg:text-base xl:text-base">{{character.node.name.full}}</span>
+        <span class="text-bluegray-800 font-normal text-left text-sm sm:text-sm md:text-base lg:text-base xl:text-base">{{character.role | titlecase}}</span>
+    </div>
+</div>
+<div class="col-0 sm:col-0 md:col-2 lg:col-2 xl:col-2"></div>
+<div class="col-6 sm:col-6 md:col-5 lg:col-5 xl:col-5 flex justify-content-end px-0 py-0">
+    <div class="flex flex-column justify-content-between px-2 py-2 w-12" style="word-wrap: break-word;" *ngIf="character.voiceActors[0]; else datosAutorElse" >
+        <span class="text-bluegray-800 text-right font-medium text-sm sm:text-sm md:text-base lg:text-base xl:text-base">{{character.voiceActors[0].name.full}}</span>
+        <span class="text-bluegray-800 text-right text-sm sm:text-sm md:text-base lg:text-base xl:text-base">{{character.voiceActors[0].languageV2 | titlecase}}</span>
+    </div>
+    <ng-template #datosAutorElse>
+        <div class="flex flex-column justify-content-between px-2 py-2" style="word-wrap: break-word;">
+            <span class="text-bluegray-800 text-right font-medium text-sm sm:text-sm md:text-base lg:text-base xl:text-base">Sin autor</span>
+            <span class="text-bluegray-800 text-right text-sm sm:text-sm md:text-base lg:text-base xl:text-base">Japanese</span>
+        </div>
+    </ng-template>
+    <img *ngIf="character.voiceActors[0]; else imageAutorElse" [src]="character.voiceActors[0].image.large" class="border-round-right" width="80" alt="">
+    <ng-template #imageAutorElse>
+        <img src="../../../../assets/img/default.jpg" class="border-round-right" width="80" alt="">
+    </ng-template>
+</div>
+

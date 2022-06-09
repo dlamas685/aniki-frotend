@@ -1,0 +1,24 @@
+<p-card *ngIf="skeletonData; else cardBlock" [styleClass]="bgCard">
+    <p-skeleton
+        styleClass="border-round w-12 h-14rem sm:h-14rem md:h-19rem lg:h-19rem xl:h-19rem">
+    </p-skeleton>
+    <p-skeleton styleClass="border-round w-12 mt-2"></p-skeleton>
+</p-card>
+<ng-template #cardBlock>
+    <p-card [styleClass]="bgCard">
+        <a class="flex justify-content-center border-round-lg" [routerLink]="['/media/detail',media.id]">
+            <img [src]="media.coverImage.large"
+                class="border-round w-12 h-14rem sm:h-14rem md:h-19rem lg:h-19rem xl:h-19rem" alt="">
+        </a>
+        <a class="flex justify-content-center no-underline mt-2" [routerLink]="['/media/detail',media.id]">
+            <span
+                class="title-hover font-semibold text-sm sm:text-sm md:text-base lg:text-base xl:text-base">{{media.title.romaji}}</span>
+        </a>
+    </p-card>
+</ng-template>
+
+
+
+
+
+<!-- w-9rem h-14rem sm:w-9rem md:w-13rem lg:w-13rem xl:w-13rem h-14rem sm:h-14rem md:h-19rem lg:h-19rem xl:h-19rem -->

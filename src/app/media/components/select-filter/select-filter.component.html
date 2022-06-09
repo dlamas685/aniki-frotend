@@ -1,0 +1,15 @@
+<span class="py-2 text-bluegray-800 font-semibold text-base sm:text-base md:text-base lg:text-base xl:text-base">{{ select_name }}</span>
+<p-dropdown
+  [options]="select_options"
+  styleClass="w-12 h-3rem bg-bluegray-100"
+  [filter]="true"
+  filterBy="name"
+  [(ngModel)]="selectedItems"
+  placeholder="(seleccionar)"
+  (onChange)="filterMedia()"
+  optionLabel="name"
+  optionValue = "code"
+  [showClear]="true"
+
+>
+</p-dropdown>

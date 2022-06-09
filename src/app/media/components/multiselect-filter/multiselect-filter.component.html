@@ -1,0 +1,12 @@
+<span class="py-2 text-bluegray-800 font-semibold text-base sm:text-base md:text-base lg:text-base xl:text-base">{{ multiselect_name }}</span>
+<p-multiSelect
+  [options]="multiselect_options"
+  (onChange)="filterMedia()"
+  styleClass="w-12 h-3rem bg-bluegray-100"
+  [(ngModel)]="selectedItems"
+  defaultLabel="(seleccionar)"
+  optionLabel="name"
+  optionValue="name"
+  display="chip"
+>
+</p-multiSelect>

@@ -1,0 +1,35 @@
+<section class="grid mt-2 mx-2">
+    <app-input-filter class="col-12 sm:col-6 md:col-3 lg:col-3 xl:col-3 flex flex-column" input_name="Buscar"
+        [search]="filters.search ? filters.search : ''" (onDebounce)="filterMediaSearch($event)"></app-input-filter>
+    <app-multiselect-filter class="col-6 sm:col-6 md:col-3 lg:col-3 xl:col-3 flex flex-column" multiselect_name="Género" [multiselect_options]="genders"
+        [selectedItems]="filters.genres ? filters.genres : []" (onSelectedOptions)="filterMediaGenres($event)">
+    </app-multiselect-filter>
+    <app-multiselect-filter class="col-6 sm:col-6 md:col-3 lg:col-3 xl:col-3 flex flex-column" multiselect_name="Categoría" [multiselect_options]="tags"
+        [selectedItems]="filters.tags ? filters.tags : []" (onSelectedOptions)="filterMediaTags($event)">
+    </app-multiselect-filter>
+    <app-select-filter class="col-6 sm:col-6 md:col-3 lg:col-3 xl:col-3 flex flex-column" select_name="Año" [select_options]="years"
+        [selectedItems]="filters.year" (onSelectedItem)="filterMediaSeasonYear($event)"></app-select-filter>
+    <app-select-filter class="col-6 sm:col-6 md:col-3 lg:col-3 xl:col-3 mx-auto flex flex-column" select_name="Formato" [select_options]="formats"
+        [selectedItems]="filters.format" (onSelectedItem)="filterMediaFormat($event)"></app-select-filter>
+    <div class="col-12 flex flex-wrap pt-2">
+        <i class="fa-solid fa-tags text-600 text-xl mr-2 mt-1"></i>
+        <div *ngFor="let tag of tags_view | keyvalue">
+            <p-tag styleClass="mr-2 bg-cyan-500 px-2 text-base" *ngIf="tag.value">
+                {{tag.value}}
+            </p-tag>
+        </div>
+    </div>
+    <app-select-button class="col-12 flex justify-content-end w-12" (onSortMedia)="orderMedia($event)"></app-select-button>
+</section>
+<section class="grid" infiniteScroll (scrolled)="filterOnScroll()">
+    <div class="col-12">
+        <h2 class="text-center text-2xl w-12 text-bluegray-800 font-semibold py-4">Resultados de la busqueda</h2>
+    </div>
+    <div class="col-12 flex flex-wrap justify-content-around sm:justify-content-start md:justify-content-evenly lg:justify-content-evenly xl:justify-content-evenly">
+        <app-article-media 
+        class="flex flex-column shadow-none mb-2 w-12rem h-18rem sm:w-12rem md:w-15rem lg:w-15rem xl:w-15rem sm:h-18rem md:h-25rem lg:h-25rem xl:h-25rem" *ngFor="let media of medias"
+        [media]="media"></app-article-media>
+    </div>
+</section>
+<p-scrollTop pRipple styleClass="bg-bluegray-900 shadow-none" [threshold]="100" icon="fa-solid fa-angles-up">
+</p-scrollTop>

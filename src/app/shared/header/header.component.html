@@ -1,0 +1,24 @@
+<div class="flex flex-wrap px-3 py-3 w-12 mx-auto justify-content-between md:justify-content-between lg:justify-content-between xl:justify-content-between" style="max-width: 1000px">
+    <div class="flex">
+        <img src="../../../assets/img/esferas.png" title="Logotipo" alt="Logotipo" class="m-2 anime-rotate-logo" height="50">
+        <span class="m-2 anime-text-logo">ANIKI</span>
+    </div>
+    <div class="hidden align-items-center sm:hidden md:flex lg:flex xl:flex">
+        <a class="m-2 anime-link" routerLink="/media/catalog" ><i class="fa-solid fa-house"></i> Inicio</a>
+        <div class="flex dropdown">
+            <button type="button" pRipple class="bg-bluegray-900" pButton (click)="menu.toggle($event)">
+                <p-avatar icon="fa-solid fa-user text-300" size="large"></p-avatar>
+                <span class="ml-2 flex align-items-center text-lg text-400">{{user.email}}
+                    <i class="fa-solid fa-angle-down text-lg text-400 ml-2"></i>
+                </span>
+                
+            </button>
+            <p-menu #menu [popup]="true" [model]="items"></p-menu>
+        </div>
+    </div>
+    <div class="flex align-items-center sm:flex md:hidden lg:hidden xl:hidden">
+        <button #btn type="button" pButton pRipple class="bg-bluegray-900" icon="pi pi-bars" (click)="responsive.toggle($event)"></button>
+        <p-slideMenu #responsive [model]="itemsResponsive" [popup]="true" backLabel="Atrás" [viewportHeight]="200"></p-slideMenu>
+    </div>
+</div>
+

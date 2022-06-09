@@ -1,0 +1,15 @@
+<span
+  class="py-2 text-bluegray-800 font-semibold text-base sm:text-base md:text-base lg:text-base xl:text-base"
+  >{{ input_name }}</span
+>
+<span class="p-input-icon-left">
+  <i class="pi pi-search"></i>
+  <input
+    type="text"
+    pInputText
+    placeholder="Ingresar busqueda..."
+    (input)="searchMedia()"
+    class="p-inputtext w-12 h-3rem bg-bluegray-100"
+    [(ngModel)]="search"
+  />
+</span>

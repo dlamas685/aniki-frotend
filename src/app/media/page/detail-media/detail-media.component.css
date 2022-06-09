@@ -1,0 +1,89 @@
+.banner-img {
+    width:100%;
+    height:100%;
+    max-height:208px;
+    display: inline-block;
+    object-fit: cover;
+    object-position: 20% 10%; 
+}
+
+.cover-img {
+    /* width:215px;
+    height:303px; */
+    position: absolute;
+    max-width:215px;
+    z-index: 1;
+    top:-120px;
+}
+
+.btn-favorite{
+    top:180px;
+}
+
+.characters {
+    overflow-y: auto;
+    height:100%;
+    max-height: 700px;
+    /* border: 1px solid #000; */
+
+}
+
+.relations,.suggested {
+    overflow-y: hidden;
+    overflow-x:auto;
+    width: 100%;
+    max-width: 320px;
+    scroll-behavior: smooth;
+    transition:1s;
+    scrollbar-color: var(--surface-400) white;
+}
+
+.relations::-webkit-scrollbar, .suggested::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+
+.relations::-webkit-scrollbar:horizontal, .suggested::-webkit-scrollbar:horizontal{
+    height:8px;
+}
+
+.relations::-webkit-scrollbar-thumb, .suggested::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background: var(--surface-300);
+}
+
+.characters::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+
+.characters::-webkit-scrollbar:vertical{
+	width:8px;
+}
+
+.characters::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background: var(--surface-300);
+}
+
+
+@media screen and (min-width: 768px){
+	.relations,.suggested {
+        width: 100%;
+        max-width: 750px;
+    } 
+}
+
+@media screen and (min-width: 1024px){
+	.relations,.suggested {
+        width: 100%;
+        max-width: 950px;
+    } 
+}
+
+
+
+/* @media screen and (max-width: 1024px){
+	.relations,.suggested {
+        width: 100%;
+        max-width: 770px;
+    } 
+} */

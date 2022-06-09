@@ -1,0 +1,5 @@
+.bg-header{
+    color:var(--surface-300);
+    background: #161f26;
+    padding: 0;
+}

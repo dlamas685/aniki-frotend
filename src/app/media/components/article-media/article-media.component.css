@@ -1,0 +1,19 @@
+a {
+    cursor: pointer;
+    opacity:0.9;
+    transition: transform .2s;
+}
+
+a:hover {
+	opacity: 1;
+    transform: scale(0.95);
+   
+}
+.title-hover {
+    color:var(--bluegray-600);
+    text-align: center;
+}
+
+.title-hover:hover {
+    color: rgb(255, 92, 92);
+}

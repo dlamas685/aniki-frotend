@@ -1,0 +1,37 @@
+<div class="p-card-subheader px-4">
+    <span class="text-bluegray-800">Bienvenido 👋</span>
+    <p class="text-bluegray-800 mt-1">Inicia sesión en tu cuenta y comienza la aventura.</p>
+</div>
+<form class="grid p-card-content px-4 py-4" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="loginUser()">
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa fa-user"></i>
+            <input formControlName="username" type="text" class="w-12 ng-invalid ng-dirty"
+            [ngClass]="{'ng-invalid ng-dirty':invalidInput('username')}"
+            pInputText >
+            <label for="float-input">Usuario</label>
+        </span>
+        <small class="p-error block mt-2" *ngIf="invalidInput('username')">Por favor, ingrese un nombre de usuario.</small>
+    </div>
+    <div class="col-12">
+        <span class="p-float-label p-input-icon-left w-12">
+            <i class="fa-solid fa-key"></i>
+            <input formControlName="password" type="password" pInputText class="w-12 ng-invalid ng-dirty"
+            [ngClass]="{'ng-invalid ng-dirty':invalidInput('password')}"
+            >
+            <label for="float-input">Contraseña</label>
+        </span>
+        <small  class="p-error block mt-2" *ngIf="invalidInput('password')">Por favor, ingrese su contraseña.</small>
+    </div>
+    <div class="col-12">
+        <span class="text-bluegray-800">¿No tienes una cuenta?</span>
+        <a [routerLink]="['/auth/signin']" class="text-orange-500">
+            <span> Registrarse</span>
+        </a>
+    </div>
+    <div class="col-12 flex justify-content-end">
+        <button pButton pRipple class="bg-orange-500" type="submit" [disabled]="miFormulario.invalid" icon="fa-solid fa-arrow-right-to-bracket" label="Inciar sesión">
+        </button>
+    </div>
+</form>
+

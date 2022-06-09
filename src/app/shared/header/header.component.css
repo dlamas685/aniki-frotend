@@ -1,0 +1,69 @@
+
+
+.anime-link {
+  display: inline-block;
+  padding: 0px 10px;
+  color:var(--surface-300);
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
+}
+
+.user-text {
+    font-size:1.2rem;
+}
+
+.dropdown {
+    border-left: 1px dashed var(--surface-300);
+    padding:0px 10px;
+
+}
+
+.anime-avatar {
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.anime-avatar:hover {
+    color: #ff8000;
+}
+
+
+
+.anime-link:hover,
+.anime-link:active {
+  color: #ff8000
+}
+
+.anime-link:after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 2px;
+  margin-top: 2px;
+  width: 0px;
+  transition: all 0.4s;
+}
+
+.anime-link:hover:after,
+.anime-link:active:after {
+  width: 100%;
+  background: #ff8000;
+}
+
+.anime-rotate-logo {
+  animation: rotate-logo infinite 30s linear;
+}
+
+
+@keyframes rotate-logo {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }

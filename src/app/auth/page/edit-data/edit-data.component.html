@@ -1,0 +1,58 @@
+<div class="flex justify-content-center h-screen align-items-center px-4">
+    <div class="p-card" style="max-width: 500px;">
+        <div class="p-card-header flex justify-content-start align-items-center px-4 py-4">
+            <img src="../../../assets/icons/Fairy-Tail.ico" class="mr-2 w-4rem" alt="">
+            <span class="text-bluegray-800 text-4xl anime-text-logo">ANIKI</span>
+        </div>
+        <div class="p-card-subheader px-4">
+            <span class="text-bluegray-800">Actualiza tu información personal 🚀</span>
+        </div>
+        <form class="grid p-card-content px-4 py-4" autocomplete="off" #miFormulario>
+            <div class="col-12">
+                <span class="p-float-label p-input-icon-left w-12">
+                    <i class="fa fa-user"></i>
+                    <input id="float-input" type="text" disabled class="w-12" pInputText [(ngModel)]="username" name="username">
+                    <label for="float-input">Usuario</label>
+                </span>
+            </div>
+            <div class="col-12">
+                <span class="p-float-label p-input-icon-left w-12">
+                    <i class="fa-solid fa-at"></i>
+                    <input id="float-input" type="text" class="w-12 ng-invalid ng-dirty" pInputText [(ngModel)]="name" name="name">
+                    <label for="float-input">Nombre</label>
+                </span>
+                <small class="p-error block mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+            </div>
+            <div class="col-12">
+                <span class="p-float-label p-input-icon-left w-12">
+                    <i class="fa-solid fa-at"></i>
+                    <input id="float-input" type="email" class="w-12 ng-invalid ng-dirty" pInputText [(ngModel)]="email" name="email">
+                    <label for="float-input">Email</label>
+                </span>
+                <small class="p-error block mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+            </div>
+            <div class="col-12">
+                <span class="p-float-label p-input-icon-left w-12">
+                    <i class="fa-solid fa-key"></i>
+                    <input  type="password" pInputText id="float-input" class="w-12 ng-invalid ng-dirty"  [(ngModel)]="password" name="password">
+                    <label for="float-input">Contraseña</label>
+                </span>
+                <small  class="p-error block mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+            </div>
+            <div class="col-12">
+                <span class="p-float-label p-input-icon-left w-12">
+                    <i class="fa-solid fa-key"></i>
+                    <input id="float-input" type="password" class="w-12 ng-invalid ng-dirty" pInputText [(ngModel)]="password_2" name="password2">
+                    <label for="float-input">Repetir contraseña</label>
+                </span>
+                <small class="p-error block mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+            </div>
+            <div class="col-12 flex justify-content-end">
+                <button pButton pRipple class="bg-orange-500" icon="fa-solid fa-arrow-right-to-bracket" label="Guardar">
+                </button>
+            </div>
+        </form>
+    
+    </div>
+    
+</div>
