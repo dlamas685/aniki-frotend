@@ -27,9 +27,6 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Favoritos', icon: 'fa-solid fa-heart', routerLink: '/media/favorite'
       },
-      {
-        label: 'Configuración', icon: 'fa-solid fa-gear', routerLink: '/auth/edit-data',
-      },
       { separator: true },
       { label: 'Cerrar sesión', icon: 'fa-solid fa-right-from-bracket', command:()=>{
         this.authService.logoutUser();
@@ -51,11 +48,6 @@ export class HeaderComponent implements OnInit {
             label: 'Favoritos',
             icon: 'fa-solid fa-heart',
             routerLink: '/media/favorite'
-          },
-          {
-            label: 'Configuración',
-            icon: 'fa-solid fa-gear', 
-            routerLink: '/auth/edit-data'
           },
           {
             label: 'Cerrar sesión',

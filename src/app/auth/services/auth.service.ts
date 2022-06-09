@@ -5,6 +5,8 @@ import { environment } from 'src/environments/environment';
 import { AuthResponse, User } from '../interfaces/auth.interface';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Media } from 'src/app/media/interfaces/media.interface';
+import { MediaService } from 'src/app/media/services/media.service';
+import { MediaFormat, MediaSort, MediaType } from 'src/app/media/interfaces/media.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,10 @@ export class AuthService {
     return {...this._user};
   }
   
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private mediaService: MediaService
+    ) { }
 
   public createUser(user:User): Observable<AuthResponse> {
     const url = `${this._baseUrl}/auth/new`;
@@ -41,7 +46,6 @@ export class AuthService {
     return this.http.post<AuthResponse>(url,body).pipe(
       tap(resp => {
         if (resp.success){
-          this.logoutUser();
           sessionStorage.setItem('token', resp.token!);
         }
       }),
@@ -52,6 +56,15 @@ export class AuthService {
   
   public logoutUser(){
     sessionStorage.clear();
+    this.mediaService.filters = {
+      search: null,
+      genres: null,
+      tags: null,
+      year: null,
+      format: MediaFormat.Tv,
+      type: MediaType.Anime,
+      sort: [MediaSort.Popularity_Desc],
+    };
   }
 
   public validateToken(): Observable<boolean> {

@@ -24,13 +24,7 @@ export class FavoriteMediaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.authService.getMediasFavorites().pipe(
-    //   switchMap(({favorites}) => this.mediaService.getMediasFavoritesFull(favorites!))
-    // ).subscribe(
-    //   medias => {
-    //     this._mediasFavorites = medias;
-    //   }
-    // );
+    this.mediaService.getMediasFavorites().subscribe();
   }
 
   public updateFavorite(media:Media): void {

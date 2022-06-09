@@ -18,28 +18,28 @@ export class SigninComponent implements OnInit {
 
   public miFormulario:FormGroup = this.fb.group({
     username: [
-      'dlamas685',
+      '',
       [Validators.required, Validators.pattern(this.validatorSvc.usernamePattern), Validators.minLength(5), Validators.maxLength(12)],
       [this.validatorUser]
     ],
     name: [
-      'Daniel Lamas',
+      '',
       [Validators.required, Validators.pattern(this.validatorSvc.namePattern)]
     ],
     email: [
-      'dlamas1298@gmail.com',
+      '',
       [Validators.required, Validators.pattern(this.validatorSvc.emailPattern)],
       [this.validatorEmail]
     ],
     password: [
-      '123456',[Validators.required, Validators.minLength(6)]
+      '',[Validators.required, Validators.minLength(6)]
     ],
     repeatPass: [
-      '123456',
+      '',
       [Validators.required, Validators.minLength(6)]
     ],
     conditions: [
-      true,
+      false,
       [Validators.requiredTrue]
     ],
   }, {validators:this.validatorSvc.equalFields('password', 'repeatPass')});

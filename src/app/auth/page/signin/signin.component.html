@@ -1,7 +1,7 @@
 <div class="p-card-subheader px-4">
     <span class="text-bluegray-800">Registrarse para más funcionalidades 🚀</span>
 </div>
-<form class="grid p-card-content px-4 py-4" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="createUser()">
+<form class="grid p-card-content px-4 py-4" autocomplete="off" [formGroup]="miFormulario">
     <div class="col-12">
         <span class="p-float-label p-input-icon-left w-12">
             <i class="fa fa-user"></i>
@@ -70,7 +70,7 @@
         </a>
     </div>
     <div class="col-12 flex justify-content-end">
-        <button pButton pRipple class="bg-orange-500" [disabled]="miFormulario.invalid" icon="fa-solid fa-arrow-right-to-bracket" type="submit" label="Registrarse">
+        <button pButton pRipple class="bg-orange-500" (click)="createUser()" [disabled]="miFormulario.invalid || miFormulario.pending" icon="fa-solid fa-arrow-right-to-bracket" type="button" label="Registrarse">
         </button>
     </div>
 </form>
@@ -80,7 +80,7 @@
     [draggable]="false" [resizable]="false">
     <p class="m-0">No hay no existen, solo gozalo!!</p>
         <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" type="button" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
         </ng-template>
 </p-dialog>
 
