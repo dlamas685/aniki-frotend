@@ -24,7 +24,7 @@ export class SigninComponent implements OnInit {
     ],
     name: [
       '',
-      [Validators.required, Validators.pattern(this.validatorSvc.namePattern)]
+      [Validators.required]
     ],
     email: [
       '',

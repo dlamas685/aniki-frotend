@@ -1,6 +1,6 @@
 <div class="p-card-subheader px-4">
-    <span class="text-bluegray-800">Bienvenido 👋</span>
-    <p class="text-bluegray-800 mt-1">Inicia sesión en tu cuenta y comienza la aventura.</p>
+    <span class="text-bluegray-800 text-sm sm:text-sm md:text-base lg:text-base xl:text-base">Bienvenido 👋</span>
+    <p class="text-bluegray-800 mt-1 text-sm sm:text-sm md:text-base lg:text-base xl:text-base">Inicia sesión en tu cuenta y comienza la aventura.</p>
 </div>
 <form class="grid p-card-content px-4 py-4" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="loginUser()">
     <div class="col-12">
@@ -24,13 +24,13 @@
         <small  class="p-error block mt-2" *ngIf="invalidInput('password')">Por favor, ingrese su contraseña.</small>
     </div>
     <div class="col-12">
-        <span class="text-bluegray-800">¿No tienes una cuenta?</span>
+        <span class="text-bluegray-800 text-sm sm:text-sm md:text-base lg:text-base xl:text-base">¿No tienes una cuenta?</span>
         <a [routerLink]="['/auth/signin']" class="text-orange-500">
             <span> Registrarse</span>
         </a>
     </div>
     <div class="col-12 flex justify-content-end">
-        <button pButton pRipple class="bg-orange-500" type="submit" [disabled]="miFormulario.invalid" icon="fa-solid fa-arrow-right-to-bracket" label="Inciar sesión">
+        <button pButton pRipple class="bg-orange-500" type="submit" [disabled]="miFormulario.invalid" icon="fa-solid fa-arrow-right-to-bracket" label="Iniciar sesión">
         </button>
     </div>
 </form>

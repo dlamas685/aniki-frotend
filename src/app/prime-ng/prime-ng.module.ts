@@ -13,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ImageModule} from 'primeng/image';
 import {MenuModule} from 'primeng/menu';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {RippleModule} from 'primeng/ripple';
@@ -41,6 +42,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ImageModule,
     MenuModule,
     MultiSelectModule,
+    OverlayPanelModule,
     ProgressSpinnerModule,
     RadioButtonModule,
     RippleModule,

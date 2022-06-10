@@ -375,7 +375,6 @@ export class MediaService {
         this.mediasFullData(favorites!).subscribe(
           medias => {
             this._favorites = medias;
-            console.log(medias);
           }
         );
       }),

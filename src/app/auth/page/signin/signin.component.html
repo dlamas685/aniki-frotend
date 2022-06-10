@@ -1,5 +1,9 @@
 <div class="p-card-subheader px-4">
-    <span class="text-bluegray-800">Registrarse para más funcionalidades 🚀</span>
+    <div class="flex justify-content-between align-items-center">
+        <span class="text-bluegray-800 text-sm sm:text-sm md:text-base lg:text-base xl:text-base">Registrarse para más funcionalidades 🚀</span>       
+        <button pButton pRipple class="p-button-rounded p-button-info p-button-text" (click)="op.toggle($event)" icon="fa-regular fa-circle-question">
+        </button>
+    </div>
 </div>
 <form class="grid p-card-content px-4 py-4" autocomplete="off" [formGroup]="miFormulario">
     <div class="col-12">
@@ -56,7 +60,7 @@
     <div class="col-12 flex justify-content-end">
         <div class="field-checkbox">
             <p-checkbox [binary]="true" inputId="binary" formControlName="conditions"></p-checkbox>
-            <label for="binary" class="text-bluegray-800">
+            <label for="binary" class="text-bluegray-800 text-sm sm:text-sm md:text-base lg:text-base xl:text-base">
                 Términos y condiciones
             </label>
             <button pButton pRipple class="p-button-info p-button-text ml-2" (click)="showModalDialog()" icon="pi pi-external-link">
@@ -64,7 +68,7 @@
         </div>
     </div>
     <div class="col-12">
-        <span class="text-bluegray-800">¿Ya tienes una cuenta?</span>
+        <span class="text-bluegray-800 text-sm sm:text-sm md:text-base lg:text-base xl:text-base">¿Ya tienes una cuenta?</span>
         <a [routerLink]="['/auth/login']" class="text-orange-500">
             <span> Iniciar sesión</span>
         </a>
@@ -74,15 +78,28 @@
         </button>
     </div>
 </form>
-
-<!-- <pre>Form Valid: {{miFormulario.valid}}</pre> -->
 <p-dialog header="Condiciones" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
     [draggable]="false" [resizable]="false">
     <p class="m-0">No hay no existen, solo gozalo!!</p>
         <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" type="button" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" type="button" (click)="displayModal=false" label="Cerrar" styleClass="p-button-text"></p-button>
         </ng-template>
 </p-dialog>
+<p-overlayPanel #op>
+    <ng-template pTemplate>
+        <div class="flex flex-column w-20rem">
+            <h5 class="font-bold text-base sm:text-base md:text-lg lg:text-lg xl:text-lg mb-4">Ayuda de usuario</h5>
 
+            <span class="font-normal text-sm sm:text-sm md:text-base lg:text-base xl:text-base mb-3">• El usuario debe estar formado de X cantidad de letras seguidas de como mucho 3 números.</span>
+            <span class="font-normal text-sm sm:text-sm md:text-base lg:text-base xl:text-base mb-3">• No incluir carácteres especiales -?_* etc. en el usuario.</span>
+            <span class="font-normal text-sm sm:text-sm md:text-base lg:text-base xl:text-base mb-3">• La contraseña debe tener un tamaño mínimo de 6 carácteres.</span>
+            <span class="font-normal text-sm sm:text-sm md:text-base lg:text-base xl:text-base mb-3">• No se requiere un patrón para el Nombre.</span>
+            <span class="font-normal text-sm sm:text-sm md:text-base lg:text-base xl:text-base mb-5">• Una vez registrado los datos no podrán ser actualizados.</span>
+            <span class="font-normal text-sm sm:text-sm md:text-base lg:text-base xl:text-base text-right">Mucha suerte!</span>
+
+        </div>
+
+    </ng-template>
+</p-overlayPanel>
 
 
