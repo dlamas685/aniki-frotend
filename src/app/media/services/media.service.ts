@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { combineLatest, Observable, of } from 'rxjs';
-import { filter, pluck, map, tap, catchError } from 'rxjs/operators';
+import { filter, pluck, map, tap, catchError, delay } from 'rxjs/operators';
 import { AuthResponse } from 'src/app/auth/interfaces/auth.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { environment } from 'src/environments/environment';

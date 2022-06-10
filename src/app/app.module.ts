@@ -4,22 +4,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MiscModule } from './misc/misc.module';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import localeES from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
+import { NotFoundComponent } from './misc/page/not-found/not-found.component';
 registerLocaleData(localeES);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MiscModule,
     GraphQLModule,
     HttpClientModule
   ],

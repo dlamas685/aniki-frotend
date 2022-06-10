@@ -10,10 +10,10 @@ import {DialogModule} from 'primeng/dialog';
 import {DividerModule} from 'primeng/divider';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
+import {ImageModule} from 'primeng/image';
 import {MenuModule} from 'primeng/menu';
 import {MultiSelectModule} from 'primeng/multiselect';
-import {PaginatorModule} from 'primeng/paginator';
-import {PasswordModule} from 'primeng/password';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {RippleModule} from 'primeng/ripple';
 import {ScrollTopModule} from 'primeng/scrolltop';
@@ -23,8 +23,7 @@ import {SlideMenuModule} from 'primeng/slidemenu';
 import {StyleClassModule} from 'primeng/styleclass';
 import {TabViewModule} from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   exports: [
@@ -39,10 +38,10 @@ import { TagModule } from 'primeng/tag';
     DialogModule,
     DividerModule,
     InputTextModule,
+    ImageModule,
     MenuModule,
     MultiSelectModule,
-    PaginatorModule,
-    PasswordModule,
+    ProgressSpinnerModule,
     RadioButtonModule,
     RippleModule,
     ScrollTopModule, 
@@ -52,6 +51,7 @@ import { TagModule } from 'primeng/tag';
     StyleClassModule,
     TabViewModule,
     TagModule,
+    NgxPaginationModule
   ]
 })
 export class PrimeNGModule { }

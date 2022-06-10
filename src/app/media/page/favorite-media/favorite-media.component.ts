@@ -12,6 +12,7 @@ import { MediaService } from '../../services/media.service';
 })
 export class FavoriteMediaComponent implements OnInit {
 
+  p: number = 1;
 
 
   get mediasFavorites():Media[] {

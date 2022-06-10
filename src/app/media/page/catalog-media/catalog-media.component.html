@@ -14,16 +14,21 @@
     <div class="col-12 flex flex-wrap pt-2">
         <i class="fa-solid fa-tags text-600 text-xl mr-2 mt-1"></i>
         <div *ngFor="let tag of tags_view | keyvalue">
-            <p-tag styleClass="mr-2 bg-cyan-500 px-2 text-base" *ngIf="tag.value">
-                {{tag.value}}
+            <p-tag *ngIf="tag.value | customValue; else valueArray" styleClass="mr-2 mb-2 bg-cyan-500 px-2 text-base" >
+                {{tag.value | customText | titlecase}}
             </p-tag>
+            <ng-template #valueArray>
+                <p-tag *ngFor="let value of (tag.value | arrayTag)" styleClass="mr-2 mb-2 bg-cyan-500 px-2 text-base" >
+                    {{value | customABR  |titlecase}}
+                </p-tag>
+            </ng-template>
         </div>
     </div>
     <app-select-button class="col-12 flex justify-content-end w-12" (onSortMedia)="orderMedia($event)"></app-select-button>
 </section>
-<section class="grid" infiniteScroll (scrolled)="filterOnScroll()">
+<section class="grid px-0 mx-0" infiniteScroll (scrolled)="filterOnScroll()">
     <div class="col-12">
-        <h2 class="text-center text-2xl w-12 text-bluegray-800 font-semibold py-4">Resultados de la busqueda</h2>
+        <h2 class="text-center text-2xl w-12 text-bluegray-800 font-semibold py-4 animate__animated animate__rubberBand animate__fast">Resultados de la busqueda</h2>
     </div>
     <div class="col-12 flex flex-wrap justify-content-around sm:justify-content-start md:justify-content-evenly lg:justify-content-evenly xl:justify-content-evenly">
         <app-article-media 

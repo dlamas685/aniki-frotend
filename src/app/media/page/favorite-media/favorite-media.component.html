@@ -1,11 +1,28 @@
-<section class="grid mx-0 py-4 mt-2" >
+<section class="grid mx-0 py-4" >
     <div class="col-12 mt-4 flex flex-column align-items-center">
-        <h2 class="text-center text-2xl w-12 text-bluegray-800 font-semibold mb-2">Animes Favoritos</h2>
-        <p-divider class="w-6" type="dashed"></p-divider>
-
+        <h2 class="text-center w-12 text-2xl text-bluegray-800 font-semibold mb-2 animate__animated animate__rubberBand animate__fast">≋ FAVORITOS ≋</h2>
     </div>
-    <div class="col-12 flex flex-wrap justify-content-start mt-5 px-6">
-        <app-article-favorite *ngFor="let favorite of mediasFavorites;" class="mt-2 mr-5" [media]="favorite" (onUpdateFavorite)="updateFavorite($event)"></app-article-favorite>
-
+    <div class="col-12 flex flex-wrap justify-content-start px-4" *ngIf="mediasFavorites.length !== 0; else notFavorite">
+        <app-article-favorite *ngFor="let favorite of mediasFavorites | paginate: { itemsPerPage: 2, currentPage: p }" class="grid mt-3 surface-card pt-4 border-round-lg animate__animated animate__fadeIn animate__fast" [media]="favorite" (onUpdateFavorite)="updateFavorite($event)"></app-article-favorite>
+        <div class="flex justify-content-center mt-4 w-12" >
+            <pagination-controls 
+            (pageChange)="p = $event" 
+            [responsive]="true" 
+            [autoHide]="true"
+            previousLabel="Anterior"
+            nextLabel="Siguiente"
+            screenReaderPaginationLabel="Paginación"
+            screenReaderPageLabel="página"
+            screenReaderCurrentLabel="Estás en la página">
+            ></pagination-controls>
+        </div>
     </div>
+    <ng-template #notFavorite>
+        <div  class="col-12 flex flex-column justify-content-center align-items-center" style="height:200px">
+            <h3 class="text-center w-12 text-2xl text-bluegray-800 font-semibold mb-4 animate__animated animate__fadeIn animate__fast">Aun no hay favoritos</h3>
+            <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration="1.5s"></p-progressSpinner>
+        
+        </div>
+    </ng-template>
 </section>
+

@@ -15,13 +15,18 @@ import { InputFilterComponent } from './components/input-filter/input-filter.com
 import { MultiselectFilterComponent } from './components/multiselect-filter/multiselect-filter.component';
 import { SelectButtonComponent } from './components/select-button/select-button.component';
 import { SelectFilterComponent } from './components/select-filter/select-filter.component';
-// import { YouTubePlayerModule } from '@angular/youtube-player';
+
 import { ArticleMediaComponent } from './components/article-media/article-media.component';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { DataMediaComponent } from './components/data-media/data-media.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { ArticleFavoriteComponent } from './components/article-favorite/article-favorite.component';
-import { DataCustomPipe } from './pipes/data-custom.pipe';
+import { SetColorPipe } from './pipes/set-color.pipe';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { CustomValuePipe } from './pipes/custom-value.pipe';
+import { CustomTextPipe } from './pipes/custom-text.pipe';
+import { ArrayTagPipe } from './pipes/array-tag.pipe';
+import { CustomABRPipe } from './pipes/custom-abr.pipe';
 
 
 @NgModule({
@@ -39,7 +44,11 @@ import { DataCustomPipe } from './pipes/data-custom.pipe';
     CharacterCardComponent,
     SafePipe,
     ArticleFavoriteComponent,
-    DataCustomPipe
+    SetColorPipe,
+    CustomValuePipe,
+    CustomTextPipe,
+    ArrayTagPipe,
+    CustomABRPipe,
   ],
   imports: [
     CommonModule,
@@ -48,7 +57,7 @@ import { DataCustomPipe } from './pipes/data-custom.pipe';
     InfiniteScrollModule,
     PrimeNGModule,
     SharedModule,
-    // YouTubePlayerModule
+    YouTubePlayerModule
   ],
   exports: [
     CatalogMediaComponent,

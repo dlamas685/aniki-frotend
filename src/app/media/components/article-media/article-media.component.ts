@@ -23,7 +23,7 @@ export class ArticleMediaComponent implements OnInit {
     this.skeletonData = true;
     setTimeout(() => {
       this.skeletonData = false;
-    }, 800);
+    }, 600);
     return this.skeletonData;
   }
 }

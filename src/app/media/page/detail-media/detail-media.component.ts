@@ -44,7 +44,6 @@ export class DetailMediaComponent implements OnInit {
     return this._isFavorite;
   }
 
-
   ngOnInit(): void {
     if (!apiLoaded) {
       const tag = document.createElement('script');
@@ -52,14 +51,14 @@ export class DetailMediaComponent implements OnInit {
       document.body.appendChild(tag);
       apiLoaded = true;
     }
-    
     this.mediaService.getMediasFavorites().subscribe();
     this.getInfoMedia();
     this.getCharactersMedia();
-    this.getRelationsMedia();
-    this.getSuggestedMedia();
+    setTimeout(() => {
+      this.getRelationsMedia();
+      this.getSuggestedMedia();
+    }, 500);
   }
-
 
   public getCharactersMedia(): void {
     this.pageCharacter++;
@@ -111,54 +110,7 @@ export class DetailMediaComponent implements OnInit {
           }
         }
   }
-  private deleteProperty(key: string): boolean {
-    return key !== 'id' && key !== 'title' 
-      && key !== 'description' && key !== '__typename' && key !== 'genres'
-      && key !== 'tags' && key !== 'trailer' && key !== 'bannerImage'
-      && key !== 'coverImage' && key !== 'studios';
-  }
 
-
-  public setColor(genre: string): string {
-    switch (genre) {
-      case 'Action':
-        return 'bg-primary mr-2 mb-2';
-      case 'Adventure':
-        return 'bg-yellow-500 mr-2 mb-2';
-      case 'Comedy':
-        return 'surface-800 mr-2 mb-2';
-      case 'Drama':
-        return 'bg-pink-600 mr-2 mb-2';
-      case 'Ecchi':
-        return 'surface-800 mr-2 mb-2';
-      case 'Fantasy':
-        return 'bg-primary-reverse mr-2 mb-2';
-      case 'Horror':
-        return 'bg-indigo-900 mr-2 mb-2';
-      case 'Mahou Shoujo':
-        return 'bg-purple-800 mr-2 mb-2';
-      case 'Mecha':
-        return 'bg-bluegray-100 mr-2 mb-2';
-      case 'Mystery':
-        return 'bg-cyan-300 mr-2 mb-2';
-      case 'Psychological':
-        return 'bg-teal-900 mr-2 mb-2';
-      case 'Romance':
-        return 'bg-pink-300 mr-2 mb-2';
-      case 'Sci-Fi':
-        return 'bg-orange-500 mr-2 mb-2';
-      case 'Slice of Life':
-        return 'bg-yellow-300 mr-2 mb-2';
-      case 'Sports':
-        return 'bg-green-500 mr-2 mb-2';
-      case 'Supernatural':
-        return 'bg-orange-900 mr-2 mb-2';
-      case 'Thriller':
-        return 'bg-bluegray-900 mr-2 mb-2';
-      default:
-        return 'bg-primary mr-2 mb-2';
-    }
-  }
 
 
   public getSuggestedMedia(): void {

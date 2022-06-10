@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
         routerLink:'/media/catalog'
       },
       {
-        label: 'Daniel Lamas',
+        label: this.user.username,
         icon: 'fa-solid fa-user',
         items: [
           {
